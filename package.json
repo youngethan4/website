@@ -1,0 +1,27 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "Source for my website and server",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "scss": "node-sass --watch public/scss/ethan -o public/css/ethan"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/airrazor013/website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/airrazor013/website/issues"
+  },
+  "homepage": "https://github.com/airrazor013/website#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  }
+}

@@ -1,0 +1,208 @@
+@import 'mediaBreaks.scss';
+@import 'colors.scss';
+
+.project{
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 90%;
+  max-width: $width-desktop - 100;
+  text-align: center;
+  margin: 40px auto;
+  padding: 10px;
+
+  @media screen and (min-width: $break-ultra){
+    max-width: $width-ultra;
+  }
+}
+
+.projectIntro{
+  margin: auto;
+
+  h1{
+    margin: 10px;
+  }
+
+  p{
+    font-size: $body-text-desktop;
+    margin: 10px;
+
+    @media screen and (max-width: $break-mobile){
+      font-size: $body-text-mobile;
+    }
+
+    @media screen and (min-width: $break-ultra){
+        font-size: $body-text-ultra;
+    }
+  }
+
+  button{
+    font-size: $body-text-desktop;
+    border: 2px solid $color-light;
+    background-color: white;
+    margin: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+
+    @media screen and (max-width: $break-mobile){
+      font-size: $body-text-mobile;
+    }
+
+    @media screen and (min-width: $break-ultra){
+        font-size: $body-text-ultra;
+    }
+
+    &:hover{
+      background-color: $color-light;
+    }
+
+    &:focus{
+      outline: none;
+    }
+  }
+}
+
+.projectContent{
+  display: none;
+}
+
+.textProject {
+  font-size: $body-text-desktop;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: left;
+
+  @media screen and (max-width: $break-mobile){
+    font-size: $body-text-mobile;
+  }
+
+  @media screen and (min-width: $break-ultra){
+      font-size: $body-text-ultra;
+  }
+}
+
+.tools{
+  font-size: $body-text-mobile;
+  padding-bottom: 25px;
+
+  @media screen and (max-width: $break-mobile){
+    font-size: $body-text-mobile;
+  }
+
+  @media screen and (min-width: $break-ultra){
+      font-size: $body-text-ultra;
+  }
+
+  p{
+    display: inline-block;
+    border: 1px solid $color-light;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+}
+
+.slick-slider{
+  background-color: lightgray;
+  padding-top: 10px;
+}
+
+.slick-track {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.slick-slide {
+  &:hover{
+    cursor: pointer;
+  }
+  &:focus{
+    outline: none;
+    border: none;
+  }
+}
+
+.slick-prev {
+  left: 0px !important;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0) !important;
+  background: url(../../images/ethan/slick/prev.png) no-repeat center / cover !important;
+  height: 50px !important;
+  width: 30px !important;
+
+  &:hover{
+    background: url(../../images/ethan/slick/prev-hover.png) no-repeat center / cover !important;
+  }
+
+  &::before{
+    content: "" !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+  }
+}
+
+.slick-next {
+  right: 0px !important;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0) !important;
+  background: url(../../images/ethan/slick/next.png) no-repeat center / cover !important;
+  height: 50px !important;
+  width: 30px !important;
+  
+  &:hover{
+    background: url(../../images/ethan/slick/next-hover.png) no-repeat center / cover !important;
+  }
+
+  &::before{
+    content: "" !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+  }
+}
+
+.slick-arrow::after {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.picture-container{
+  margin-top: 25px;
+  max-height: 500px;
+  max-width: 100%;
+}
+
+.pictureDesciption {
+
+  img{
+    margin: 0 auto;
+    max-height: 600px;
+    max-width: 95%;
+  }
+
+  p{
+    margin: 5px auto;
+    max-width: 90%;
+    font-size: 1rem;
+
+    @media screen and (max-width: $break-mobile){
+      font-size: .8rem;
+    }
+  
+    @media screen and (min-width: $break-ultra){
+        font-size: 1.2rem;
+    }
+  }
+}
+
+.backToTop {
+  margin-top: 20px;
+  text-decoration: underline;
+  color: $color-dark;
+  cursor: pointer;
+}
