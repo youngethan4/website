@@ -1,13 +1,13 @@
 //Express variables
 var express = require("express");
 var http = require("http");
-//var https = require("https");
+var https = require("https");
 var app = express();
 var fs = require("fs");
 app.use(express.static("public", { dotfiles: "allow" }));
 app.use("*/favicon.ico", express.static("public/favicon.png"));
 app.use(express.json());
-var porthttp = 3000;
+var porthttp = 80;
 var porthttps = 443;
 const pageDir = "./pages";
 
@@ -22,31 +22,31 @@ var file = require("./exports/files.js");
 var blacklist = require("./exports/blacklist.js");
 
 //Getting key and certificate
-// const privateKey = fs.readFileSync(
-//   "/etc/letsencrypt/live/ethanryoung.com/privkey.pem",
-//   "utf8"
-// );
-// const certificate = fs.readFileSync(
-//   "/etc/letsencrypt/live/ethanryoung.com/fullchain.pem",
-//   "utf8"
-// );
-// const ca = fs.readFileSync(
-//   "/etc/letsencrypt/live/ethanryoung.com/chain.pem",
-//   "utf8"
-// );
-// const credentials = {
-//   key: privateKey,
-//   cert: certificate,
-//   ca: ca,
-// };
+const privateKey = fs.readFileSync(
+  "/etc/letsencrypt/live/ethanryoung.com-0001/privkey.pem",
+  "utf8"
+);
+const certificate = fs.readFileSync(
+  "/etc/letsencrypt/live/ethanryoung.com-0001/fullchain.pem",
+  "utf8"
+);
+const ca = fs.readFileSync(
+  "/etc/letsencrypt/live/ethanryoung.com-0001/chain.pem",
+  "utf8"
+);
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+  ca: ca,
+};
 
 const httpServer = http.createServer(app);
-//const httpsServer = https.createServer(credentials, app);
+const httpsServer = https.createServer(credentials, app);
 
 //Check for valid info
 app.use(function (req, res, next) {
-  if (1 == 0) {
-    //res.redirect("https://" + req.headers.host + req.url);
+  if (req.protocol === "http") {
+    res.redirect("https://" + req.headers.host + req.url);
   } else {
     if (
       typeof req === undefined ||
@@ -135,7 +135,7 @@ httpServer.listen(
   porthttp,
   clog("HTTP listening on " + porthttp + " for requests.", color.blue)
 );
-// httpsServer.listen(
-//   porthttps,
-//   clog("HTTPS listening on " + porthttps + " for requests.", color.red)
-// );
+httpsServer.listen(
+  porthttps,
+  clog("HTTPS listening on " + porthttps + " for requests.", color.red)
+);
